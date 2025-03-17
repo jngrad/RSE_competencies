@@ -18,6 +18,28 @@ Important Dates:
 
 **We use British English**
 
+Clone the repository and initialise the submodules as follows:
+
+```sh
+git clone --branch main --origin upstream git@github.com:the-teachingRSE-project/end_of_RSEng.git
+cd end_of_RSEng
+git submodule update --init --recursive
+git config --local submodule.recurse true
+```
+
+If you never configured the [teaching RSE project shared bibliography](https://github.com/the-teachingRSE-project/bibliography),
+run the following command before the call to `git submodule`:
+
+```sh
+sed -i 's|^[ \t]*url *= *../|  url = https://github.com/the-teachingRSE-project/|' .gitmodules
+```
+
+To build the PDF, run:
+
+```sh
+make
+```
+
 ### Bibliography
 
 We use a central, shared BibTeX bibliography file for all papers in the teaching RSE project.
@@ -61,3 +83,19 @@ references that are specific to this paper, such as annotated URLs or talks,
 or conference proceedings rewritten in the BibTeX format:
 the shared bibliography uses BibLaTeX format,
 which can lead to references with missing fields when processed by BibTeX.
+
+### How to create a pull request
+
+- Fork this repository
+- If you clone your fork locally, run
+  ```sh
+  git submodule update --init --recursive
+  git config --local submodule.recurse true
+  ```
+- Create your changes in your fork
+- Go to the [pull requests](https://github.com/the-teachingRSE-project/end_of_RSEng/pulls) page of this repository and push `new pull request`
+- Add a short description
+- You can open PR as a "Draft PR" to indicate work-in-progress PRs
+
+The community will review your pull request and may ask you for additional changes.
+If you have any questions, please don't hesitate to ask (we are trying to be as helpful as possible).
